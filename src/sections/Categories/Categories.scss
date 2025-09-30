@@ -1,0 +1,9 @@
+.category-cards {
+  display: flex;
+  justify-content: space-between;
+  column-gap: fluid-to-laptop(30, 20);
+
+  @include tablet {
+    overflow-x: scroll;
+  }
+}

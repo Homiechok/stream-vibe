@@ -1,0 +1,74 @@
+.support {
+  display: grid;
+  align-items: center;
+  gap: fluid-to-laptop(80, 50);
+  padding-bottom: var(--section-padding-y);
+
+  @include tablet-above {
+    padding-top: fluid-to-laptop(65, 45);
+  }
+
+  @include mobile-above {
+    grid-template-columns: 33.5% 1fr;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(50, 30);
+    height: 100%;
+  }
+
+  &__info {
+    display: grid;
+    row-gap: fluid-to-laptop(14, 10);
+  }
+
+  &__image {
+    flex-grow: 1;
+    width: 100%;
+    object-fit: cover;
+    background-color: var(--color-black-06);
+    outline: var(--border-width-l) solid var(--color-black-15);
+    border-radius: var(--border-radius-xs);
+
+    @include laptop {
+      border-radius: var(--border-radius-xxxs);
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: fluid(50, 20) fluid-to-laptop(50, 20);
+    padding: fluid(50, 24);
+    background-color: var(--color-black-06);
+    border: var(--border);
+    border-radius: var(--border-radius-l);
+
+    @include mobile-s-above {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include laptop {
+      border-radius: var(--border-radius-m);
+    }
+
+    &-cell {
+      &--wide {
+        grid-column: -1 / 1;
+      }
+
+      &--actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        @include mobile-s {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    }
+  }
+}

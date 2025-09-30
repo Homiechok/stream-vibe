@@ -1,0 +1,119 @@
+.movie-details {
+  --movieDetailsPaddingTop: #{fluid(100, 60)};
+
+  display: grid;
+  gap: 20px;
+  padding-top: var(--movieDetailsPaddingTop);
+  padding-bottom: var(--section-padding-y);
+
+  @include tablet-above {
+    grid-template-columns: 1fr 32.5%;
+  }
+
+  @include tablet {
+    .movie-details__panel {
+      &--seasons {
+        order: -3;
+      }
+
+      &--description {
+        order: -2;
+      }
+
+      &--info {
+        order: -1;
+      }
+    }
+  }
+
+  &__main {
+    display: grid;
+    row-gap: fluid-to-laptop(30, 20);
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__info {
+    @include tablet-above {
+      position: sticky;
+      top: calc(var(--movieDetailsPaddingTop) + 20px);
+      align-self: start;
+    }
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &__panel {
+    display: grid;
+    row-gap: fluid(30, 16);
+    padding: fluid(50, 24);
+    background-color: var(--color-black-10);
+    border: var(--border);
+    border-radius: var(--border-radius-l);
+
+    @include laptop {
+      border-radius: var(--border-radius-m);
+    }
+
+    &--large-padding-y {
+      row-gap: fluid(40, 24);
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+
+  &__groups {
+    display: grid;
+    row-gap: fluid(30, 20);
+  }
+
+  &__part {
+    display: grid;
+    row-gap: fluid(14, 8);
+
+    &--big-gap-y {
+      row-gap: fluid(40, 20);
+    }
+  }
+
+  &__group {
+    display: contents;
+
+    @include tablet {
+      display: flex;
+      column-gap: 16px;
+
+      .movie-details__part {
+        width: 100%;
+      }
+    }
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__title {
+    @include fluid-text(18, 14);
+
+    display: flex;
+    align-items: center;
+    column-gap: fluid-to-laptop(4, 2);
+    font-weight: 500;
+    color: var(--color-gray-60);
+  }
+
+  &__description {
+    color: var(--color-white);
+    font-weight: 500;
+  }
+}

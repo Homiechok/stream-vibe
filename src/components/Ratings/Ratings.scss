@@ -1,0 +1,24 @@
+.ratings {
+  &__list {
+    display: flex;
+    gap: fluid-to-laptop(20, 16);
+  }
+
+  &__item {
+    display: grid;
+    row-gap: 4px;
+    padding: fluid(16, 12);
+    background-color: var(--color-black-08);
+    border: var(--border);
+    border-radius: var(--border-radius-s);
+    width: 100%;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__title {
+    @include fluid-text(20, 14);
+  }
+}

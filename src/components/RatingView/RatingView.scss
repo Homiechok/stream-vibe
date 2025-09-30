@@ -1,0 +1,37 @@
+.rating-view {
+  --ratingViewValue: 5;
+  --ratingViewWidth: #{fluid(98, 75)};
+
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  font-size: fluid-to-laptop(18, 14);
+
+  &--big {
+    --ratingViewWidth: #{fluid-to-laptop(130, 95)};
+
+    font-size: fluid-to-laptop(20, 14);
+  }
+
+  &__stars {
+    position: relative;
+
+    &-unfilled,
+    &-filled {
+      width: var(--ratingViewWidth);
+    }
+
+    &-filled {
+      --ratingViewStarsClipEnd: calc(100% / 5 * var(--ratingViewValue));
+
+      @include abs-cover;
+
+      clip-path: polygon(
+        0 0,
+        var(--ratingViewStarsClipEnd) 0,
+        var(--ratingViewStarsClipEnd) 100%,
+        0 100%
+      );
+    }
+  }
+}

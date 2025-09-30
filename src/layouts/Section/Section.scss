@@ -1,0 +1,41 @@
+.section {
+  display: grid;
+  row-gap: fluid(80, 40);
+  padding-block: var(--section-padding-y);
+
+  &--reset-padding-top {
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: fluid-to-laptop(100, 80);
+
+    &:has(.section__description) {
+      align-items: end;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: start;
+        row-gap: 20px;
+      }
+    }
+
+    &:not(:has(.section__actions)) {
+      padding-right: fluid-to-laptop(300, 150);
+
+      @include tablet {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__info {
+    display: grid;
+    row-gap: fluid(14, 8);
+  }
+}
